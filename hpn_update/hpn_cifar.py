@@ -21,9 +21,9 @@ import torch.optim as optim
 from   torchvision import datasets, transforms
 
 import helper
-sys.path.append("models/cifar/")
-import densenet, resnet, convnet
-    
+# sys.path.append("models/cifar/")
+# import densenet, resnet, convnet
+from models.cifar import densenet, resnet, convnet
 
 ################################################################################
 # Training epoch.
@@ -49,6 +49,7 @@ def main_train(model, device, trainloader, optimizer, f_loss, epoch):
         # Data to device.
         nlabels = target.clone()
         target = model.polars[target]
+        print(nlabels.size())
         data   = torch.autograd.Variable(data).cuda()
         target = torch.autograd.Variable(target).cuda()
         
@@ -121,7 +122,7 @@ def main_test(model, device, testloader):
 #
 def parse_args():
     parser = argparse.ArgumentParser(description="CIFAR-100 classification")
-    parser.add_argument("--datadir", dest="datadir", default="../data/", type=str)
+    parser.add_argument("--datadir", dest="datadir", default="../../data/", type=str)
     parser.add_argument("--resdir", dest="resdir", default="res/", type=str)
     parser.add_argument("--hpnfile", dest="hpnfile", default="prototypes/sgd/prototypes-100d-100c.npy", type=str)
 
