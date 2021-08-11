@@ -126,7 +126,7 @@ def parse_args():
     parser.add_argument("--resdir", dest="resdir", default="res/", type=str)
     parser.add_argument("--hpnfile", dest="hpnfile", default="prototypes/sgd/prototypes-100d-100c.npy", type=str)
 
-    parser.add_argument("-n", dest="network", default="resnet32", type=str)
+    parser.add_argument("-n", dest="network", default="densenet121", type=str)
     parser.add_argument("-r", dest="optimizer", default="sgd", type=str)
     parser.add_argument("-l", dest="learning_rate", default=0.01, type=float)
     parser.add_argument("-m", dest="momentum", default=0.9, type=float)
